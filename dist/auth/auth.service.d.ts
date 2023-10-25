@@ -14,8 +14,8 @@ export declare class AuthService {
     private usersService;
     constructor(authModel: Model<Auth>, usersModel: Model<Users>, companiesModel: Model<Companies>, jwtService: JwtService, usersService: UsersService);
     registration(data: RegistrationDto, response: Response): Promise<object>;
-    login(data: LoginDto, response: Response): Promise<object>;
-    googlelogin(data: GoogleLoginDto, response: Response): Promise<object>;
+    login(data: LoginDto, response: any): Promise<object>;
+    googlelogin(data: GoogleLoginDto, response: any): Promise<object>;
     validateUser(email: string, pass: string): Promise<any>;
-    signout(data: any, res: Response): Promise<object>;
+    signout(data: any, res: any): Promise<object>;
 }
