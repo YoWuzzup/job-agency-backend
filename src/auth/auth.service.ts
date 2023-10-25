@@ -58,7 +58,7 @@ export class AuthService {
     }
   }
 
-  async login(data: LoginDto, response: Response): Promise<object> {
+  async login(data: LoginDto, response: any): Promise<object> {
     const email = data.email;
     const pass = data.password;
 
@@ -96,7 +96,7 @@ export class AuthService {
     };
   }
 
-  async googlelogin(data: GoogleLoginDto, response: Response): Promise<object> {
+  async googlelogin(data: GoogleLoginDto, response: any): Promise<object> {
     const decoded: any = this.jwtService.decode(data.credential);
     // toJSON() to get rid of _doc properties at ... spread part
     const user = (
@@ -161,7 +161,7 @@ export class AuthService {
     );
   }
 
-  async signout(data: any, res: Response): Promise<object> {
+  async signout(data: any, res: any): Promise<object> {
     const jwt = this.jwtService.sign(
       { data },
       {
