@@ -1,6 +1,5 @@
 import { Body, Controller, Get, Post, Res } from '@nestjs/common';
-import { Req, UseGuards } from '@nestjs/common/decorators';
-import { AuthGuard } from '@nestjs/passport';
+import { Req } from '@nestjs/common/decorators';
 import { Response } from 'express';
 import { OAuth2Client } from 'google-auth-library';
 
@@ -49,7 +48,6 @@ export class AuthController {
     return this.authService.signout(data, response);
   }
 
-  @UseGuards(AuthGuard('jwt'))
   @Get('test')
   async test(@Req() req) {
     return `test controller is working`;

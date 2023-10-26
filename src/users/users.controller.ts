@@ -1,14 +1,5 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  Post,
-  Query,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { FileInterceptor } from '@nestjs/platform-express';
 
 @Controller('user')
 export class UsersController {
@@ -30,7 +21,6 @@ export class UsersController {
   }
 
   @Post(':id')
-  @UseInterceptors(FileInterceptor('avatar'))
   async changeUserData(@Body() body: any, @Param('id') userId: string) {
     return this.usersService.changeUserData(userId, body);
   }
